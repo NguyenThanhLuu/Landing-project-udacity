@@ -1,9 +1,10 @@
 // Declare global variable
-var navbarContainer = document.getElementById("navbarList");
+let navbarContainer = document.getElementById("navbarList");
+let classListNavElement = document.getElementsByClassName('menu__link');
 
 // Build navbar add four li child tag into ul tag
 for (let i = 0; i < 4; i++) {
-    var newElement = document.createElement("li");
+    let newElement = document.createElement("li");
     newElement.className = `menu__link section${i + 1}`; 
     newElement.innerHTML = `Section ${i + 1}`;
     navbarContainer.appendChild(newElement);
@@ -12,7 +13,7 @@ for (let i = 0; i < 4; i++) {
 // Write function to scroll to section it will be active
 function makeActive() {
     const sections = document.querySelectorAll('section');
-    for (const section of sections) {
+    for (let section of sections) {
       const box = section.getBoundingClientRect();
       const sectionValueId = section.getAttribute('id');
       if (box.top <= 150 && box.bottom >= 150) {
@@ -26,14 +27,13 @@ function makeActive() {
   }
 
 // Make sections active
-document.addEventListener("scroll", function() {
+document.addEventListener("scroll", () => {
     makeActive();
 });
 
 // Active section when click name section on navbar
-var classListNavElement = document.getElementsByClassName('menu__link');
 for (let i = 0; i < classListNavElement.length; i++) {            
-  classListNavElement[i].addEventListener('click',function(){
+  classListNavElement[i].addEventListener('click',() => {
     document.querySelector(`#section${i + 1}`).scrollIntoView({ behavior: "smooth" });
   })
 } 
