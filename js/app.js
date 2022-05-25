@@ -34,7 +34,6 @@ document.addEventListener("scroll", function() {
 var classListNavElement = document.getElementsByClassName('menu__link');
 for (let i = 0; i < classListNavElement.length; i++) {            
   classListNavElement[i].addEventListener('click',function(){
-    console.log(true);
     document.querySelector(`#section${i + 1}`).scrollIntoView({ behavior: "smooth" });
   })
 } 
